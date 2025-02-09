@@ -33,7 +33,8 @@ postRouter.post("/", async (req, res) => {
     const bodyData = {
         title: req.body.title,
         body: req.body.body,
-        is_published: req.body.is_published
+        is_published: req.body.is_published,
+        category_id: req.body.category_id
     }
     const newPost = await createPost(bodyData)
     res.status(201).json(newPost)
@@ -44,7 +45,8 @@ postRouter.patch("/:postId", async (req, res) => {
     const bodyData = {
         title: req.body.title,
         body: req.body.body,
-        is_published: req.body.is_published
+        is_published: req.body.is_published,
+        category_id: req.body.category_id
     }
     const updatedPost = await updatePost(req.params.postId, bodyData)
     if (updatedPost) {
